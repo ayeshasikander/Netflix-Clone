@@ -15,10 +15,10 @@ const Login = () => {
             </div>
             <div className="container">
               <input type="text" placeholder='email' />
-              <input type="password" placeholder='paswsord' />
+              <input type="password" placeholder='password' />
               <button>Login</button>
             </div>
-          </div>
+          </div> 
         </div>
       </div>
     </Wrapper>
@@ -33,7 +33,7 @@ position: relative;
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.6);
   grid-template-columns: 15vh 85vh;
   .form-wrapper{
     display: flex;
@@ -49,7 +49,7 @@ position: relative;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    background-color: #000000b0;
+    background-color: rgba(0, 0, 0, 0.887);
     height: 75vh;
     padding: 2rem;
     border-radius: 0.4rem;
@@ -64,6 +64,18 @@ position: relative;
       width: 25rem;
       height: 3.4rem;
       border-radius: 0.4rem;
+      outline: none;
+    }
+    button{
+      cursor: pointer;
+      padding: 0.5rem;
+      background-color: #D91921;
+      border: none;
+      border-radius: 0.4rem;
+      height: 3.1rem;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: bolder;
     }
   }
 

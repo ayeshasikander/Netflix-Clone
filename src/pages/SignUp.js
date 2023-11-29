@@ -1,11 +1,29 @@
 import React, { useState } from 'react';
+import { firebaseAuth } from '../utils/firebase-config';
 import styled from 'styled-components';
+import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import Header from '../components/Header';
 import Backgroundimg from '../components/Backgroundimg';
-
+import { useNavigate } from 'react-router-dom';
 const SignUp = () => {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+  const [formValues, setFormValues] = useState({ email: "", password: "" })
+  const navigate = useNavigate()
 
+
+  const handleSignIn = async () => {
+    try {
+      const { email, password } = formValues
+      await createUserWithEmailAndPassword(firebaseAuth, email, password)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  onAuthStateChanged(firebaseAuth,(cureentUser)=>{
+    if(cureentUser) navigate('/')
+  })
+  
   return (
     <Container>
       <Backgroundimg />
@@ -22,13 +40,17 @@ const SignUp = () => {
           <div className='form'>
             {
               showPassword ? (
-                <input type='password' placeholder='password' name='password' />
-              ) : <input type='email' placeholder='email address' name='email' />
+                <input type='password' placeholder='password' name='password'
+                  value={formValues.password}
+                  onChange={(e) => { setFormValues({ ...formValues, [e.target.name]: e.target.value }) }} />
+              ) : <input type='email' placeholder='email address' name='email'
+                value={formValues.email}
+                onChange={(e) => { setFormValues({ ...formValues, [e.target.name]: e.target.value }) }} />
             }
             {
               !showPassword ? (
                 <button onClick={() => setShowPassword(true)}>Get Started</button>
-              ) : <button>Sign Up</button>
+              ) : <button onClick={handleSignIn}>Sign Up</button>
             }
 
 
@@ -76,7 +98,7 @@ h6{
 .form{
   margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: ${({showPassword})=>showPassword?"1fr 1fr":"2fr 1fr"};
+  grid-template-columns: ${({ showPassword }) => showPassword ? "1fr 1fr" : "2fr 1fr"};
   width: 60%;
   input{
     color: black;
