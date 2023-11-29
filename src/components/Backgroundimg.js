@@ -11,7 +11,7 @@ const Backgroundimg = () => {
 const BackgroundContain = styled.div`
       height: 100vh;
       width: 100vw;
-      /* overflow-x:hidden; */
+      overflow:hidden;
       img{
         height: 100vh;
         width: 100vw;
