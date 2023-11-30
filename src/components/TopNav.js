@@ -51,10 +51,30 @@ nav{
     z-index: 2;
     width: 100%;
     background-color: ${props => (props.isScroll ? "black" : "transparent")};
-    transition: all 0.5s ease;
+    transition: 0.5s ease-in-out;
+    .left-side{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    .logo{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+    }
+    img{
+        height: 2rem;
+        width: 10rem;
+    }
 }
-
- 
+.links{
+    display: flex;
+    li{
+        a{
+            color: #fff;
+        }
+    }
+}
  
 `
 
