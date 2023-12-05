@@ -2,3 +2,4 @@ styled component
 useNavigate 
 Link
 firebase authentication
+API the movie data base 
