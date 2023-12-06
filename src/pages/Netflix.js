@@ -1,22 +1,33 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import TopNav from "../components/TopNav";
-import Card from "../components/Card";
-import { AiOutlineInfoCircle } from "react-icons/ai";
-import { FaPlay } from "react-icons/fa";
+// import Card from "../components/Card";
+// import { AiOutlineInfoCircle } from "react-icons/ai";
+// import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { getGenres } from "../store";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovies, getGenres } from "../store";
+import Slider from "../components/Slider";
 
 const Netflix = () => {
   const [isScroll, setIsScroll] = useState(false);
-  const navigate=useNavigate();
-  const dispatch=useDispatch();
+  const navigate = useNavigate();
+  const movies = useSelector((state) => state.netflix.movies)
+  const generesLoaded = useSelector((state) => state.netflix.generesLoaded);
+  const dispatch = useDispatch();
 
 
-useEffect(()=>{
-  dispatch(getGenres())
-},[])
+  useEffect(() => {
+    dispatch(getGenres())
+  }, [])
+
+
+  useEffect(() => {
+    if (generesLoaded) {
+      dispatch(fetchMovies({ type: "all" }))
+    }
+  });
+
 
   window.onscroll = () => {
     setIsScroll(window.pageYOffset === 0 ? false : true);
@@ -24,6 +35,9 @@ useEffect(()=>{
       window.onscroll = null;
     };
   };
+
+ 
+
   return (
     <HeroContainer>
       <div className="hero">
@@ -44,12 +58,13 @@ useEffect(()=>{
             </p>
           </div>
           <div className="buttons">
-            <button className="playBtn"onClick={()=>navigate('/player')}>Play</button>
+            <button className="playBtn" onClick={() => navigate('/player')}>Play</button>
             <button className="moreBtn">More</button>
           </div>
         </div>
       </div>
-      <Card/>
+      {/* <Card /> */}
+      <Slider  movies={movies}/>
     </HeroContainer>
   );
 };
