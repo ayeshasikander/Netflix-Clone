@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styled from "styled-components";
 import TopNav from "../components/TopNav";
 import Card from "../components/Card";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getGenres } from "../store";
+
 const Netflix = () => {
   const [isScroll, setIsScroll] = useState(false);
   const navigate=useNavigate();
+  const dispatch=useDispatch();
+
+
+useEffect(()=>{
+  dispatch(getGenres())
+},[])
 
   window.onscroll = () => {
     setIsScroll(window.pageYOffset === 0 ? false : true);
