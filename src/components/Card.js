@@ -6,7 +6,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { RiThumbUpFill, RiThumbDownFill } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
-const Card = () => {
+const Card = ({ movieData }) => {
   const [hovered, setHovered] = useState(false);
   const navigate = useNavigate();
   return (
@@ -15,7 +15,7 @@ const Card = () => {
       onMouseLeave={() => setHovered(false)}
     >
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaCor4AIV__zuNlgGZTSr424NdUudWBQKBrA&usqp=CAU"
+        src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
         alt="movie"
         onClick={() => navigate("/player")}
       />
@@ -24,7 +24,7 @@ const Card = () => {
         <div className="hover">
           <div className="wrapper-vi">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaCor4AIV__zuNlgGZTSr424NdUudWBQKBrA&usqp=CAU"
+              src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
               alt="movie"
               onClick={() => navigate("/player")}
             />
@@ -37,9 +37,9 @@ const Card = () => {
             ></video>
           </div>
           <div className="info-section">
-            <h1 className="movieName" onClick={() => navigate("/player")}>
-              Red Notice
-            </h1>
+            <h2 className="movieName" onClick={() => navigate("/player")}>
+              {movieData.name}
+            </h2>
 
             <div className="icons">
               <div className="controls">
@@ -60,9 +60,9 @@ const Card = () => {
             </div>
             <div className="genre">
               <ul>
-                <li>Action</li>
-                <li>Action</li>
-                <li>Action</li>
+                {movieData.genres.map((genre) => (
+                  <li key={genre}>{genre}</li>
+                ))}
               </ul>
             </div>
           </div>
