@@ -1,5 +1,5 @@
 styled component
-useNavigate 
+useNavigate useEffect,useRef,useState,axios,redux toolkit
 Link
 firebase authentication
 API the movie data base 

@@ -51,9 +51,10 @@ const Container = styled.div`
   padding: 1rem 0;
 
   h1 {
-    margin-left: 10px;
+    display: flex;
+    justify-content: center;
     color: white;
-    font-size: 25px;
+    font-size: 35px;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
   .wrapper {

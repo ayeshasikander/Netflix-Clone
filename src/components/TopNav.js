@@ -67,6 +67,7 @@ const NavContainer = styled.div`
       align-items: center;
       gap: 2rem;
       margin-left: 5rem;
+      font-size: 20px;
 
       .logo {
         display: flex;
