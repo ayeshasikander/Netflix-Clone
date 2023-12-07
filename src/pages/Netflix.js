@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import TopNav from "../components/TopNav";
-// import Card from "../components/Card";
-// import { AiOutlineInfoCircle } from "react-icons/ai";
-// import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, getGenres } from "../store";
 import Slider from "../components/Slider";
+
 
 const Netflix = () => {
   const [isScroll, setIsScroll] = useState(false);
@@ -63,7 +61,6 @@ const Netflix = () => {
           </div>
         </div>
       </div>
-      {/* <Card /> */}
       <Slider  movies={movies}/>
     </HeroContainer>
   );

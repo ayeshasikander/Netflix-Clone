@@ -5,13 +5,11 @@ import Player from './pages/Player';
 import MoviePage from './pages/MoviePage';
 import TvShow from './pages/TvShow';
 import Netflix from './pages/Netflix';
-// import Header from './components/Header';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
         <Route exact path='/' element={<Netflix />}></Route>
         <Route exact path='/login' element={<Login />}></Route>
@@ -20,7 +18,6 @@ function App() {
         <Route exact path='/movie' element={<MoviePage />}></Route>
         <Route exact path='/tv' element={<TvShow />}></Route>
       </Routes>
-      {/* <Header/> */}
     </BrowserRouter>
   );
 }
