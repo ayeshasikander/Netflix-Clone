@@ -5,6 +5,7 @@ import Player from './pages/Player';
 import MoviePage from './pages/MoviePage';
 import TvShow from './pages/TvShow';
 import Netflix from './pages/Netflix';
+import Footer from './components/Footer';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route exact path='/movie' element={<MoviePage />}></Route>
         <Route exact path='/tv' element={<TvShow />}></Route>
       </Routes>
+      <Footer></Footer>
     </BrowserRouter>
   );
 }
