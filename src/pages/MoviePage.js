@@ -1,9 +1,9 @@
-import React from 'react'
-
+import React from 'react';
+import Backgroundimg from '../components/Backgroundimg';
 const MoviePage = () => {
   return (
     <div>
-      moviepage
+      <Backgroundimg/>
     </div>
   )
 }
