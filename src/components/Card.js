@@ -75,9 +75,8 @@ const Card = ({ movieData }) => {
 const CardContaniner = styled.div`
   margin-top: 1rem;
   max-width: 230px;
-  width: 230px;
+  width: 235px;
   height: 100%;
-  background-color: red;
   cursor: pointer;
   position: relative;
   img {
