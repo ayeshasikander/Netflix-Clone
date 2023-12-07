@@ -56,6 +56,12 @@ If you'd like to contribute to this project, please follow the standard GitHub f
 3. Make your changes.
 4. Submit a pull request.
 
+
+## images:
+![Getting Started](./src/assets/signup-page.png)
+![Getting Started](./src/assets/login-page.png)
+![Getting Started](./src//assets/netflix-moviepage.png)
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
